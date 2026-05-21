@@ -46,3 +46,13 @@ if(CMAKE_CXX_COMPILER_ID MATCHES GNU)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-psabi -Wextra -Wpedantic -Werror")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
 endif()
+
+option(UTEST "Compile unitary test" OFF)
+if(UTEST)
+	include(CTest)
+	enable_testing()
+	add_subdirectory("${PROJECT_SOURCE_DIR}/vendor/gtest")
+	add_subdirectory("${PROJECT_SOURCE_DIR}/vendor/fff")
+endif()
+
+add_subdirectory("${PROJECT_SOURCE_DIR}/src")
