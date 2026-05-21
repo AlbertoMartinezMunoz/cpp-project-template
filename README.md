@@ -32,6 +32,15 @@ and then adding it to the CMakeList
 add_subdirectory("${PROJECT_SOURCE_DIR}/vendor/fff")
 ```
 
+### Valgrind
+
+#### Installation
+
+```console
+sudo apt-get update
+sudo apt-get -y install valgrind
+```
+
 ## Build
 
 ### Release
