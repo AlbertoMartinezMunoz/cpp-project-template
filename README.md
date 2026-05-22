@@ -57,6 +57,36 @@ It will be used to format the c++ files before commiting them to the repo. To ma
 find ./src -iname '*.h' -o -iname '*.hpp' -o -iname '*.cpp' | xargs clang-format -i -style=file
 ```
 
+### pre-commit
+
+The `pre-commit` tool runs hooks on every commit to automatically point out issues in code such as missing semicolons, trailing whitespace, and debug statements. To install pre-commit:
+
+```console
+pip install pre-commit
+```
+
+To configure it:
+
+1. Create a file named .pre-commit-config.yaml you can generate a very basic configuration using
+
+```console
+pre-commit sample-config > .pre-commit-config.yaml
+```
+
+2. Run the hooks against all of the files
+
+```console
+pre-commit run --all-files
+```
+
+3. Install the git hook scripts
+
+```console
+pre-commit install
+```
+
+The whole documentation in on the website [pre-commit](https://pre-commit.com/)
+
 ## Build
 
 ### Release
