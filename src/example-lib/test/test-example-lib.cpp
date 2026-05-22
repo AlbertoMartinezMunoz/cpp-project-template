@@ -10,7 +10,7 @@ class TestExampleLib : public ::testing::Test {
 };
 
 TEST_F(TestExampleLib, TestIsAllwaysOK) {
-    EXPECT_EQ(0,0);
+    EXPECT_EQ(0, 0);
     return;
 }
 
