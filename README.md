@@ -87,6 +87,82 @@ pre-commit install
 
 The whole documentation in on the website [pre-commit](https://pre-commit.com/)
 
+### Python
+
+Install Python3
+
+```shell
+sudo apt update
+sudo apt install python3
+```
+
+Install pip3
+
+```shell
+sudo apt-get install python3-pip
+python3 -m pip install --user --upgrade pip
+```
+
+#### Python Virtual Environment
+
+Install venv
+
+```shell
+sudo apt-get install python3-venv
+```
+
+The scripts in this folder are designed to be set up using a Python virtual environment (`venv`). The first time you want to set up the application on Linux, execute the steps below on a shell:
+
+```sh
+# Set up a virtual environment
+python3 -m venv .venv
+
+# Activate it
+. .venv/bin/activate
+
+# Install necessary packages and upgrade
+pip install -r requirements.txt --upgrade
+```
+
+Please do _not_ use `sudo` within a virtual environment; it will not work as intended. Instead, set up your system correctly so that you do not need root access to run the script.
+
+On Windows Command Prompt, the commands are slightly different:
+
+```bat
+REM Set up a virtual environment
+python3 -m venv .venv
+
+REM Activate it
+CALL .venv\Scripts\activate.bat
+
+REM Install necessary packages and upgrade
+pip install -r requirements.txt --upgrade
+```
+
+For more information, e.g., using `venv` with Windows PowerShell, see the [official Python venv documentation](https://docs.python.org/3/library/venv.html).
+
+To use the application again at a later time, you only need to perform the activation step.
+
+#### Create/Update Requirements File
+You can use the following code to generate a requirements.txt file:
+
+```sh
+pip freeze > requirements.txt
+```
+
+Instead of adding all the dependencies to the `requirements.txt` file, we can append only the packages we need to install without deppendencies:
+
+```sh
+pip freeze | grep "PACKAGE_NAME==" >> requirements.txt
+```
+
+To start intalling libraries again for fresh, you can update the dependencies list and then uninstall all the dependencies:
+
+```sh
+pip freeze > requirements.txt
+pip uninstall -y -r requirements.txt
+```
+
 ## Build
 
 ### Release
@@ -140,3 +216,15 @@ All in one line:
 ```console
 cmake . -DUTEST=ON -H. -Bbuildtest; cd buildtest; make -j3 && ctest -T memcheck -VV; cd ..
 ```
+
+### Acceptance Testing
+
+Acceptance/Integration tests will be carried on using **pytest**
+
+To run the tests:
+
+```console
+pytest --html=./buildatest/report.html --self-contained-html ./atest
+```
+
+More information in [pytest: helps you write better programs](https://docs.pytest.org/en/stable/)

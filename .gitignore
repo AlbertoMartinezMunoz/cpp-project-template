@@ -1,6 +1,9 @@
 # Build directories
 build*
 
+# Python venv
+.venv/
+
 # Visual Studio Code
 .vscode/
 
@@ -73,3 +76,6 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+
+# Python Byte-compiled / optimized / DLL files
+__pycache__/
