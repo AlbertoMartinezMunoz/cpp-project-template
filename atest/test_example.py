@@ -11,7 +11,7 @@ class TestClass:
     def test_one(self):
         print("\nRunning test one...")
         x = "this"
-        assert "h" in x
+        assert "j" in x
 
     def test_sum(self):
         print("\nRunning test sum...")
