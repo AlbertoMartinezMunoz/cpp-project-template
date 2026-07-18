@@ -228,3 +228,18 @@ pytest --html=./buildatest/report.html --self-contained-html ./atest
 ```
 
 More information in [pytest: helps you write better programs](https://docs.pytest.org/en/stable/)
+
+### Build UML Diagrams
+
+The C4 diagrams are made using [PlantUML](https://plantuml.com/). First, you have to install the `plantuml` package:
+
+```console
+sudo apt-get update
+sudo apt-get install plantuml
+```
+
+Then, to build the diagrams, you only have to run the `plantuml` command:
+
+```console
+plantuml -tpng <path-to-the-files>
+```
