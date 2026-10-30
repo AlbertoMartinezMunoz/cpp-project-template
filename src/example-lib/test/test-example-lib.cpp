@@ -14,6 +14,11 @@ TEST_F(TestExampleLib, TestIsAllwaysOK) {
     return;
 }
 
+TEST_F(TestExampleLib, TestIsAllwaysKO) {
+    EXPECT_EQ(0,1);
+    return;
+}
+
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
